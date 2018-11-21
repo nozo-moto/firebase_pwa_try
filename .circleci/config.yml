@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: node:9.4.0
+      - image: circleci/node:9.4.0
     steps:
       - checkout
       - restore_cache:
@@ -21,13 +21,16 @@ jobs:
   deploy:
     working_directory: ~/workspace
     docker:
-      - image: node:9.4.0
+      - image: circleci/node:9.4.0
     steps:
         - attach_workspace:
             at: .
         - run:
+            name: install dependncy
+            command: npm install -g firebase
+        - run:
             name: deploy
-            command: ./node_modules/.bin/firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
+            command: firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
 
 
 workflows:
