@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/nozo-moto/firebase_pwa_try.svg?style=svg)](https://circleci.com/gh/nozo-moto/firebase_pwa_try)
 # firebase_pwa_try
 
 ## Project setup

@@ -24,7 +24,7 @@ jobs:
       - image: node:9.4.0
     steps:
         - attach_workspace:
-            at: .
+            at: ~/workspace
         - run:
             name: Install Dependency
             command: npm install -g firebase-tools
