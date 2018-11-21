@@ -27,7 +27,7 @@ jobs:
             at: .
         - run:
             name: install dependncy
-            command: npm install -g firebase
+            command: sudo npm install -g firebase
         - run:
             name: deploy
             command: firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
