@@ -1,14 +1,21 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/workspace
     docker:
-      - image: debian:stretch
+      - image: node:9.4.0
     steps:
       - checkout
+      - restore_cache:
+          key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Install Dependency 
+          command: npm install 
       - run:
-          name: Print the Current Time
-          command: date
+          name: Build
+          command: npm run build
+      - save_cache:
+          key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/workspace/node_modules
 
