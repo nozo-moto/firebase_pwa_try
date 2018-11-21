@@ -18,4 +18,20 @@ jobs:
           key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - ~/workspace/node_modules
+  deployment:
+    - deploy
+      name: deploy to FirebaseApp
+      command: firebase deploy --token "$FIREBASE_TOKEN"
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires: 
+            - build
+          filters:
+            branches:
+              only: master
 
