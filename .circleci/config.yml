@@ -24,9 +24,10 @@ jobs:
       - image: node:9.4.0
     steps:
         - attach_workspace:
-          at: .
+            at: .
         - deploy:
-          command: firebase deploy --token "$FIREBASE_TOKEN"
+            command: firebase deploy --token "$FIREBASE_TOKEN"
+
 
 workflows:
   version: 2
