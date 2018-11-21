@@ -19,9 +19,14 @@ jobs:
           paths:
             - ~/workspace/node_modules
   deployment:
-    - deploy
-      name: deploy to FirebaseApp
-      command: firebase deploy --token "$FIREBASE_TOKEN"
+    working_directory: ~/workspace
+    docker:
+      - image: node:9.4.0
+    steps:
+        - attach_workspace:
+          at: .
+        - deploy:
+          command: firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
   version: 2
