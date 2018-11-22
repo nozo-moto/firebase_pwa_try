@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "HelloPWA test page",
+  name: "message",
   props: {
     msg: String
   }
