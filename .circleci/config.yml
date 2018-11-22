@@ -9,8 +9,6 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          key: npm-{{ .Branch }}-
-          key: npm-
       - run:
           name: Install Dependency
           command: npm install
@@ -31,8 +29,6 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          key: npm-{{ .Branch }}-
-          key: npm-
       - run:
           name: Install Dependency
           command: npm install
