@@ -20,6 +20,7 @@ jobs:
           paths:
             - ~/workspace/node_modules
             - ~/workspace/dist
+          force: yes
 
   deploy:
     working_directory: ~/workspace
