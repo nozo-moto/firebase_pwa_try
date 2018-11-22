@@ -24,6 +24,7 @@ jobs:
     docker:
       - image: circleci/node:9.4.0
     steps:
+      - checkout
       - restore_cache:
           key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
