@@ -30,8 +30,8 @@ jobs:
       - restore_cache:
           key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
-        name: Install Dependency
-        command: npm install
+          name: Install Dependency
+          command: npm install
       - run:
           name: deploy
           command: ./node_modules/.bin/firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
