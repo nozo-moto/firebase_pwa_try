@@ -24,9 +24,8 @@ jobs:
           paths:
             - ~/workspace/node_modules
   deploy:
-    working_directory: ~/workspace
-    docker:
-      - image: circleci/node:9.4.0
+    machine:
+      enabled: true
     steps:
       - attach_workspace:
           at: .
