@@ -1,9 +1,5 @@
 version: 2
 
-dependencies:
-  override:
-    - sudo
-
 jobs:
   build:
     working_directory: ~/workspace
@@ -15,7 +11,7 @@ jobs:
           key: npm-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
           name: Install Dependency
-          command: npm install && npm install --save-dev firebase-tools
+          command: npm install && npm install --save-dev firebase
       - run:
           name: Build
           command: npm run build
