@@ -42,9 +42,6 @@ jobs:
           name: Install Dependency
           command: npm install
       - run:
-          name: build
-          command: npm run build
-      - run:
           name: deploy
           command: ./node_modules/.bin/firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
 
