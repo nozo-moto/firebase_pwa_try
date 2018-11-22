@@ -20,15 +20,13 @@ jobs:
           paths:
             - ~/workspace/node_modules
   deploy:
-    machine:
-      enabled: true
+    docker:
+      - image: circleci/node:9.4.0
     steps:
-      - checkout
-      - attach_workspace:
-          at: .
+      working_directory: ~/workspace
       - run:
           name: deploy
-          command: firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
+          command: ~/workspace/node_modules/.bin/firebase deploy --only hosting --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
 
 workflows:
   version: 2
